@@ -1,0 +1,21 @@
+<%- |
+    String[1] $user,
+| -%>
+[Unit]
+# this unit can be activated with a parameter, e.g. in
+#   systemctl start restic@your-repo.service
+# %I is "your-repo"
+Description=Restic backup on %I
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=<%= $user %>
+# runs restic backup on the files listed in /etc/restic/your-repo.files
+ExecStart=/usr/bin/restic backup --tag systemd.timer --files-from /etc/restic/%I.files --exclude-file /etc/restic/%I.exclude
+# source repo and password from /etc/restic/your-repo.env
+EnvironmentFile=/etc/restic/%I.env
+AmbientCapabilities=CAP_DAC_READ_SEARCH
+
+[Install]
+WantedBy=multi-user.target
