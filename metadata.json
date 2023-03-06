@@ -1,0 +1,49 @@
+{
+  "name": "ekohl-restic",
+  "version": "0.1.0",
+  "author": "Ewoud Kohl van Wijngaarden",
+  "summary": "A module to manage backups using Restic",
+  "description": "A module to manage backups using Restic",
+  "license": "MIT",
+  "source": "",
+  "dependencies": [
+    {
+      "name": "puppet/systemd",
+      "version_requirement": ">= 3.0.0 < 5"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.5.1 < 9"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 6.1.0 < 8.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "9",
+        "10",
+        "11"
+      ]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "36",
+        "37"
+      ]
+    }
+  ]
+}

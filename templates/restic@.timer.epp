@@ -1,0 +1,13 @@
+<%- |
+  String[1] $on_calendar,
+| -%>
+[Unit]
+# the timer, enabled as restic@your-repo.timer, will trigger
+# restic@your-repo.service
+Description=Run Restic on a timer
+
+[Timer]
+OnCalendar=<%= $on_calendar %>
+
+[Install]
+WantedBy=timers.target
